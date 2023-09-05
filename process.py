@@ -52,7 +52,6 @@ MT-User-Tag: 0
 Accept: */*
 MT-Network-Type: WIFI
 MT-Token: 1
-MT-Team-ID: 
 MT-Info: 028e7f96f6369cafe1d105579c5b9377
 MT-Device-ID: 2F2075D0-B66C-4287-A903-DBFF6358342A
 MT-Bundle-ID: com.moutai.mall
@@ -249,7 +248,8 @@ def send_msg(title, content):
     url = 'http://www.pushplus.plus/send'
     r = requests.get(url, params={'token': config.PUSH_TOKEN,
                                   'title': title,
-                                  'content': content})
+                                  'content': content,
+                                  'topic': config.PUSH_TOPIC})
     logging.info(f'通知推送结果：{r.status_code, r.text}')
 
 
