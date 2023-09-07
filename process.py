@@ -331,6 +331,7 @@ def getUserEnergyAward(mobile: str):
         'MT-Token-Wap': headers['MT-Token'],
         'YX_SUPPORT_WEBP': '1',
     }
+    logging.info(f"领取耐力参数: {cookies}")
     response = requests.post('https://h5.moutai519.com.cn/game/isolationPage/getUserEnergyAward', cookies=cookies,
                              headers=headers, json={})
     # response.json().get('message') if '无法领取奖励' in response.text else "领取奖励成功"
